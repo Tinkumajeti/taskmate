@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="icon" href="{% static 'images/favicon.ico.png' %}" type="image/gif" sizes="16x16">
+
+{% block title %}
+{% endblock title %}
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'images/logo.avif' %}" alt="Taskmate" width="100">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'todolist' %}">todolist</a>
+          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact us</a>
+          <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+      </div>
+
+      {% if user.is_authenticated %}
+
+      <div class="form-inline ml-auto">
+          <div class="p-2 bg-dark text-white">Logged in as {{ user.username }}</div>
+
+          <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+      </div>
+
+      {% else %}
+
+      <a href="{% url 'login' %}">
+    <button class="btn btn-success mr-2 my-2 my-sm-0" type="submit">Login</button>
+</a>
+
+<a href="{% url 'register' %}">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button>
+</a>
+
+      {% endif %}
+
+  </div>
+
+</nav>
+
+{% block content %}
+{% endblock content %}
+
+<div class="container mt-4">
+    <h1>{{ Welcome_text }}</h1>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
