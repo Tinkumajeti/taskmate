@@ -33,12 +33,14 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "taskmate.up.railway.app",
-    "web-production-e86cf.up.railway.app"
+    "web-production-e86cf.up.railway.app",
+    "taskmateurl.up.railway.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://taskmate.up.railway.app",
-    "https://web-production-e86cf.up.railway.app"
+    "https://web-production-e86cf.up.railway.app",
+    "https://taskmateurl.up.railway.app",  # ← ADD THIS
 ]
 
 
