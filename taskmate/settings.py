@@ -30,6 +30,7 @@ SECRET_KEY = env("DJANGO_SECRETY_KEY")
 DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = [
+    "63.34.244.142",
     "localhost",
     "127.0.0.1",
     "taskmate.up.railway.app",
