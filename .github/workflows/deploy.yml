@@ -17,6 +17,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/taskmate
+            git reset --hard
+            git clean -fd
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
